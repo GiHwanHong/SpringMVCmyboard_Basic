@@ -6,10 +6,12 @@
 
 	<bean id="collectionBean" class="gihwan.spring.collection.CollectionBean">
 		<property name="addressList">
-			<props>
-				<prop key="홍길동">율도국</prop>
-				<prop key="손오공">화과산</prop>
-			</props>
+			<set value-type="java.lang.String">
+				<value>서울시 서초구 서초동</value>
+				<value>서울시 동대문구 장안동</value>
+				<value>서울시 동대문구 장안동2</value>
+				<value>서울시 동대문구 장안동3</value>
+			</set>
 		</property>
 		
 	</bean>
