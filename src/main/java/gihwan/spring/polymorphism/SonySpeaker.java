@@ -1,6 +1,7 @@
 package gihwan.spring.polymorphism;
 
 public class SonySpeaker implements Speaker{
+	
 	public SonySpeaker() {
 		System.out.println("===> SonySpeaker °´Ã¼ »ý¼º");
 	}

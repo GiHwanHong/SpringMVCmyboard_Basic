@@ -2,8 +2,18 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
+
+	<context:component-scan base-package="gihwan.spring.polymorphism">
+		
+	</context:component-scan>
+
+	<bean id="apple" class="gihwan.spring.polymorphism.AppleSpeaker" />
+
+	<!-- 
 	<bean id="collectionBean" class="gihwan.spring.collection.CollectionBean">
 		<property name="addressList">
 			<set value-type="java.lang.String">
@@ -16,7 +26,9 @@
 		
 	</bean>
 
-	<!-- <bean id="tv" class="gihwan.spring.polymorphism.SamsungTV" p:speaker-ref="apple" 
-		p:price="3000000"> </bean> <bean id="sony" class="gihwan.spring.polymorphism.SonySpeaker"/> 
-		<bean id="apple" class="gihwan.spring.polymorphism.AppleSpeaker"/> -->
+	<bean id="tv" class="gihwan.spring.polymorphism.SamsungTV" p:speaker-ref="apple" p:price="3000000"> </bean>
+	<bean id="sony" class="gihwan.spring.polymorphism.SonySpeaker"/> 
+	<bean id="apple" class="gihwan.spring.polymorphism.AppleSpeaker"/>
+	-->
+	
 </beans>
