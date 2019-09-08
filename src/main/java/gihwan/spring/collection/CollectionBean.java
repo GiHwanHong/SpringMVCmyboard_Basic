@@ -1,14 +1,16 @@
 package gihwan.spring.collection;
 
 import java.util.List;
+import java.util.Map;
 
 public class CollectionBean {
-	private List<String> addressList;
-	
-	public List<String> getAddressList() {
+	private Map<String,String> addressList;
+
+	public Map<String, String> getAddressList() {
 		return addressList;
 	}
-	public void setAddressList(List<String> addressList) {
+
+	public void setAddressList(Map<String, String> addressList) {
 		this.addressList = addressList;
 	}
 }
