@@ -6,17 +6,12 @@
 
 	<bean id="collectionBean" class="gihwan.spring.collection.CollectionBean">
 		<property name="addressList">
-			<map>
-				<entry>
-					<key><value>홍길동</value></key>
-					<value>율도국</value>
-				</entry>
-				<entry>
-					<key><value>손오공</value></key>
-					<value>화과산</value>
-				</entry>
-			</map>
+			<props>
+				<prop key="홍길동">율도국</prop>
+				<prop key="손오공">화과산</prop>
+			</props>
 		</property>
+		
 	</bean>
 
 	<!-- <bean id="tv" class="gihwan.spring.polymorphism.SamsungTV" p:speaker-ref="apple" 
