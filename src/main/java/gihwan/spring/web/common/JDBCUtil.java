@@ -1,4 +1,4 @@
-package gihwan.spring.web.common;
+﻿package gihwan.spring.web.common;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,17 +6,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class JDBCUtil {
-	
+
 	public static Connection getConnection() {
 		try {
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/xe",
-		"mytest", "mytest");
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/xe", "mytest", "mytest");
 		} catch (Exception e) {
-		e.printStackTrace();
+			e.printStackTrace();
 		}
 		return null;
-		}
+	}
 
 	public static void close(PreparedStatement pstmt, Connection conn) {
 		if (pstmt != null) {

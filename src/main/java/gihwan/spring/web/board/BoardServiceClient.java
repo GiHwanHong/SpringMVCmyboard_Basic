@@ -1,4 +1,4 @@
-package gihwan.spring.web.board;
+ï»¿package gihwan.spring.web.board;
 
 import java.util.List;
 
@@ -10,22 +10,22 @@ import gihwan.spring.web.board.Impl.BoardService;
 public class BoardServiceClient {
 
 	public static void main(String[] args) {
-		// 1. ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê ±¸µ¿
+		// 1. ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆ êµ¬ë™
 		AbstractApplicationContext container = new GenericXmlApplicationContext("applicationContext.xml");
-		// 2. ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê·Î ºÎÅÍ BoardServiceImpl °´Ã¼¸¦ Lookup ÇÑ´Ù.
+		// 2. ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆë¡œ ë¶€í„° BoardServiceImpl ê°ì²´ë¥¼ Lookup í•œë‹¤.
 		BoardService boardService = (BoardService) container.getBean("boardService");
-		// 3. ±Û µî·Ï ±â´É Å×½ºÆ®
+		// 3. ê¸€ ë“±ë¡ ê¸°ëŠ¥ í…ŒìŠ¤íŠ¸
 		BoardVO vo = new BoardVO();
-		vo.setTitle("ÀÓ½ÃÁ¦¸ñ");
-		vo.setWriter("È«±æµ¿");
-		vo.setContent("ÀÏºü...");
-		boardService.insertBoard(vo);
-		// 4. ±Û °Ë»ö ±â´É Å×½ºÆ®
+		vo.setTitle("ì„ì‹œì œëª©");
+		vo.setWriter("í™ê¸¸ë™");
+		vo.setContent("ì¼ë¹ ...");
+		//boardService.insertBoard(vo);
+		// 4. ê¸€ ê²€ìƒ‰ ê¸°ëŠ¥ í…ŒìŠ¤íŠ¸
 		List<BoardVO> boaList = boardService.getBoardList(vo);
 		for (BoardVO board : boaList) {
 			System.out.println("---> " + board.toString());
 		}
-		// 5. ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê Á¾·á
+		// 5. ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆ ì¢…ë£Œ
 		container.close();
 	}
 

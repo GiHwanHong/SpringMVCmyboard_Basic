@@ -1,4 +1,4 @@
-package gihwan.spring.web.user;
+ï»¿package gihwan.spring.web.user;
 
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
@@ -7,21 +7,21 @@ public class UserServiceClient {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		// 1. ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê ±¸µ¿
+		// 1. ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆ êµ¬ë™
 		AbstractApplicationContext container = new GenericXmlApplicationContext("applicationContext.xml");
-		// 2. ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê·Î ºÎÅÍ UserServiceImpl °´Ã¼¸¦ Lookup ÇÑ´Ù.
+		// 2. ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆë¡œ ë¶€í„° UserServiceImpl ê°ì²´ë¥¼ Lookup í•œë‹¤.
 		UserService userService = (UserService) container.getBean("userService");
-		// 3. ·Î±×ÀÎ ±â´É Å×½ºÆ®
+		// 3. ë¡œê·¸ì¸ ê¸°ëŠ¥ í…ŒìŠ¤íŠ¸
 		UserVO vo = new UserVO();
 		vo.setId("gihwan");
-		vo.setPasswrod("spring");
+		vo.setPassword("spring");
 		UserVO user = userService.getUser(vo);
 		if (user != null) {
-			System.out.println(user.getName() + "´Ô È¯¿µÇÕ´Ï´Ù.");
+			System.out.println(user.getName() + "ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤.");
 		} else {
-			System.out.println("·Î±×ÀÎ ½ÇÆĞ");
+			System.out.println("ë¡œê·¸ì¸ ì‹¤íŒ¨");
 		}
-		// 4. ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê Á¾·á
+		// 4. ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆ ì¢…ë£Œ
 		container.close();
 	}
 

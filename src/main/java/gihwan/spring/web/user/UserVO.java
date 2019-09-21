@@ -2,7 +2,7 @@ package gihwan.spring.web.user;
 
 public class UserVO {
 	private String id;
-	private String passwrod;
+	private String password;
 	private String name;
 	private String role;
 
@@ -14,12 +14,12 @@ public class UserVO {
 		this.id = id;
 	}
 
-	public String getPasswrod() {
-		return passwrod;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPasswrod(String passwrod) {
-		this.passwrod = passwrod;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getName() {
@@ -37,10 +37,9 @@ public class UserVO {
 	public void setRole(String role) {
 		this.role = role;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "UserVO [id=" + id + ", passwrod=" + passwrod + ", name=" + name + ", role=" + role + "]";
+		return "UserVO [id=" + id + ", password=" + password + ", name=" + name + ", role=" + role + "]";
 	}
-
 }
