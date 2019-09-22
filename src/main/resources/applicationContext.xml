@@ -1,12 +1,62 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?><!--
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
-	<context:component-scan base-package="gihwan.spring.web"></context:component-scan>
+	<context:component-scan base-package="gihwan.spring.web" />
+	
+	<aop:aspectj-autoproxy />
+	<context:property-placeholder location="classpath:config/database.properties"/>
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}"/>
+		<property name="url" value="${jdbc.url}"/>
+		<property name="username" value="${jdbc.username}"/>
+		<property name="password" value="${jdbc.password}"/>
+	</bean>
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<!-- Transction 설정 -->
+	<!-- <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="*"/>
+		</tx:attributes>
+	</tx:advice> 
+	
+	<aop:config>
+		<aop:pointcut
+		expression="execution(* gihwan.spring.web..*(..))" id="txPointcut" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
+	</aop:config>-->
+	
+	
+	<!--
+	<bean id="around" class="gihwan.spring.web.common.AroundAdvice"></bean>
+	
+	<aop:config>
+		 <aop:pointcut expression="execution(* gihwan.spring.web..*Impl.get*(..))" id="getpointcut"/>
+		<aop:aspect ref="around">
+			<aop:around method="aroundLog" pointcut-ref="getpointcut" />
+		</aop:aspect>
+		
+	</aop:config>
+	
+	 <bean id="around" class="gihwan.spring.web.common.AroundAdvice"></bean>
+	     <bean id="afterThrowingAdvice" class="gihwan.spring.web.common.AfterThrowingAdvice"></bean>
+		 <bean id="afterAdvice" class="gihwan.spring.web.common.AfterAdvice"></bean>
+	 -->
+	<!--<aop:pointcut expression="execution(* gihwan.spring.web..*Impl.get*(..))" id="getPointcut"/> -->
 	<!-- 
 		<bean id="userService" class="gihwan.spring.web.user.Impl.UserServiceImpl">
 		<property name="userDAO" ref="userDAO" />
@@ -41,6 +91,7 @@
 	<bean id="tv" class="gihwan.spring.polymorphism.SamsungTV" p:speaker-ref="apple" p:price="3000000"> </bean>
 	<bean id="sony" class="gihwan.spring.polymorphism.SonySpeaker"/> 
 	<bean id="apple" class="gihwan.spring.polymorphism.AppleSpeaker"/>
+</beans>
+
 	-->
 	
-</beans>
